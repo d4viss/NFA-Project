@@ -2,7 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.NDFA;
+import model.Automata;
 import utils.StateType;
 
 import javax.swing.JOptionPane;
@@ -14,7 +14,7 @@ public class ControlAutomata implements ActionListener {
 	private static final String VALIDATION_FAILED = "No se pudo validar Correctamente la palabra";
 	private static final String VALIDATION_SUCESS = "Se valido Correctamente la palabra";
 	private MainFrame frame; // instancia de la vista, frame principal
-	private NDFA finiteAutomata = new NDFA();
+	private Automata finiteAutomata = new Automata();
 
 	public ControlAutomata() {
 		frame = new MainFrame(this);

@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import utils.StateType;
 
-public class NDFA {
+public class Automata {
 	private ArrayList<State> states;
 	private ArrayList<Transition> transitions;
 
 	private ArrayList<ArrayList<Transition>> statesTransitions;
 	private  ArrayList<State> currentStates;
 
-	public NDFA() {
+	public Automata() {
 		states=new ArrayList<State>();
 		transitions=new ArrayList<Transition>();
 	}
@@ -41,7 +41,7 @@ public class NDFA {
 		currentStates.add(statesTransitions.get(0).get(0).getInitialState());
 
 		for(int i = 0; i<splitWord.length; i++){
-			validation = validateCaracter(splitWord[i]);
+			validation = validateCharacter(splitWord[i]);
 			if(validation == false){
 				return validation;
 			}
@@ -58,13 +58,13 @@ public class NDFA {
 		return validation;
 	}
 
-	public boolean validateCaracter(String caracter){
+	public boolean validateCharacter(String character){
 		boolean validation = false;
 		this.currentStates = new ArrayList<State>();
 		for(int i = 0; i < statesTransitions.size(); i++){
 			ArrayList<Transition> stateTransitions = statesTransitions.get(i);
 			for(int j = 0; j < stateTransitions.size(); j++){
-				if(caracter.compareTo(String.valueOf(stateTransitions.get(j).getTransitionValue())) == 0 ){
+				if(character.compareTo(String.valueOf(stateTransitions.get(j).getTransitionValue())) == 0 ){
 					currentStates.add(stateTransitions.get(j).getFinalState());
 				}
 			}
